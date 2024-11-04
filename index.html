@@ -39,6 +39,7 @@
         border-radius: 10px;
         cursor: pointer;
         background-color: lightblue;
+        color: rgb(83, 1, 94);
       }
 
       #final_joke {
@@ -62,10 +63,6 @@
         margin-left: 20px;
         margin-right: 20px;
       }
-
-
-
-    
     </style>
   </head>
 
@@ -73,61 +70,64 @@
     <p id="title">Matt's Joke Generator</p>
 
     <div id="final_joke_container">
-        <div id="final_joke">
-            Click Here For a Dad Joke!
-        </div>
-        <button onclick="newDadJoke()">New Joke</button>
+      <div id="final_joke">Click Here For a Dad Joke!</div>
+      <button onclick="newDadJoke()">New Joke</button>
     </div>
-    
+
     <script>
-        function newDadJoke() {
-            fetch("https://icanhazdadjoke.com/", {
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(res => res.text())
-            .then(data => {
-                data = JSON.parse(data);
-                const next_joke = data.joke;
-                document.getElementById('final_joke').textContent = next_joke;
-            })
-            .catch(error => console.log(error));
-        }
+      function newDadJoke() {
+        fetch("https://icanhazdadjoke.com/", {
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((res) => res.text())
+          .then((data) => {
+            data = JSON.parse(data);
+            const next_joke = data.joke;
+            document.getElementById("final_joke").textContent = next_joke;
+          })
+          .catch((error) => console.log(error));
+      }
     </script>
 
     <div id="questions_answers">
-        <p> 1. The API that was used the icanhazdadjoke API, which provides a collection of dad jokes
-            in various formats (JSON, plain text, and HTML). The API is designed to serve random or searchable
-            dad jokes, making it easy for users to add humrous content to their websites or applications. 
-        </p>
+      <p>
+        1. The API that was used the icanhazdadjoke API, which provides a
+        collection of dad jokes in various formats (JSON, plain text, and HTML).
+        The API is designed to serve random or searchable dad jokes, making it
+        easy for users to add humrous content to their websites or applications.
+      </p>
 
-        <p> 2. URL: icanhazdadjoke.com
-        </p>
+      <p>2. URL: icanhazdadjoke.com</p>
 
-        <p>
-            3. In this code, the base URL "https://icanhazdadjoke.com/", without any additional parameters, was
-            used to fetch a random dad joke. However, it should be noted that the API has several different 
-            request options to choose from. We could use the "search" keyword within the URL, combined with
-            query parameters like "term" and "limit". The "term" parameter allows for a user to search for
-            jokes containing specific keywords. The "limit" keyword allows for a user to define the maximum
-            number of jokes to return from the search query.
-        </p>
+      <p>
+        3. In this code, the base URL "https://icanhazdadjoke.com/", without any
+        additional parameters, was used to fetch a random dad joke. However, it
+        should be noted that the API has several different request options to
+        choose from. We could use the "search" keyword within the URL, combined
+        with query parameters like "term" and "limit". The "term" parameter
+        allows for a user to search for jokes containing specific keywords. The
+        "limit" keyword allows for a user to define the maximum number of jokes
+        to return from the search query.
+      </p>
 
-        <p> 4. One way in which this API would be helpful would be within a therapy-related phone
-            application where a user, who is feeling sad/mad/etc., can click on a joke to make
-            them laugh and forget about all their troubles. This API provides a quick solution for
-            users who want to get away from the every day stresses of life. Because the collection of
-            jokes is so large, the user will never run out of opportunites to find a quick laugh. Another
-            way in which this API would be helpful would be to implement within a newsletter that is sent
-            out to all of the subscribers through email/text/etc. In doing so, each time a the newsletter
-            is sent out, it is sent with a joke, meaning that whenever someone finishs reading it they will
-            be able to get a quick laugh. In doing so, the newsletter will be associated with humor and comedy
-            which could potentially be a good reason for a subscriber to keep their subscription.
-        </p>
-
-
-
+      <p>
+        4. One way in which this API would be helpful would be within a
+        therapy-related phone application where a user, who is feeling
+        sad/mad/etc., can click on a joke to make them laugh and forget about
+        all their troubles. This API provides a quick solution for users who
+        want to get away from the every day stresses of life. Because the
+        collection of jokes is so large, the user will never run out of
+        opportunites to find a quick laugh. Another way in which this API would
+        be helpful would be to implement within a newsletter that is sent out to
+        all of the subscribers through email/text/etc. In doing so, each time a
+        the newsletter is sent out, it is sent with a joke, meaning that
+        whenever someone finishs reading it they will be able to get a quick
+        laugh. In doing so, the newsletter will be associated with humor and
+        comedy which could potentially be a good reason for a subscriber to keep
+        their subscription.
+      </p>
     </div>
   </body>
 </html>
